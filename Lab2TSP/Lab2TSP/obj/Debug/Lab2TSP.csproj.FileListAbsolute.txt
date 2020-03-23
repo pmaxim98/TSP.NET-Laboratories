@@ -1,0 +1,9 @@
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\bin\Debug\Lab2TSP.exe.config
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\bin\Debug\Lab2TSP.exe
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\bin\Debug\Lab2TSP.pdb
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.csprojAssemblyReference.cache
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.Form1.resources
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.Properties.Resources.resources
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.csproj.GenerateResource.cache
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.exe
+C:\Visual Studio Projects\Lab2TSP\Lab2TSP\obj\Debug\Lab2TSP.pdb

@@ -1,0 +1,5 @@
+C:\Visual Studio Projects\Lab1TSPN\Lab1TSPN\bin\Release\Lab1TSPN.exe.config
+C:\Visual Studio Projects\Lab1TSPN\Lab1TSPN\bin\Release\Lab1TSPN.exe
+C:\Visual Studio Projects\Lab1TSPN\Lab1TSPN\bin\Release\Lab1TSPN.pdb
+C:\Visual Studio Projects\Lab1TSPN\Lab1TSPN\obj\Release\Lab1TSPN.exe
+C:\Visual Studio Projects\Lab1TSPN\Lab1TSPN\obj\Release\Lab1TSPN.pdb
