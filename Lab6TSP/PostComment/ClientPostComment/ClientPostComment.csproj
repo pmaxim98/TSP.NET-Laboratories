@@ -90,15 +90,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HostWCF\HostWCF.csproj">
-      <Project>{25b6a7df-4a71-44cc-99cb-3bc84e677e5f}</Project>
-      <Name>HostWCF</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\PostComment\PostComment.csproj">
-      <Project>{4F633262-A5ED-49E3-9FD0-AF81BD1C85AC}</Project>
-      <Name>PostComment</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
