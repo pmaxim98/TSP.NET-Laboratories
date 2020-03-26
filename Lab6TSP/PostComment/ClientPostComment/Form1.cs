@@ -1,13 +1,9 @@
-﻿using PostComment;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using PostComment;
 
 namespace ClientPostComment
 {
@@ -15,48 +11,83 @@ namespace ClientPostComment
     {
         List<Post> posts = new List<Post>();
 
+        int selectedPostIndex = -1;
+
         public Form1()
         {
             InitializeComponent();
-        }
 
-        // Handler pentru evenimentul Load al ferestrei principale
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            posts = LoadPosts().ToList<Post>();
-            dgp.DataSource = posts;
+            RefreshPosts();
+
+            dgp.CellMouseClick += dgp_CellMouseClick;
+
             dgp.Columns[0].Width = 0;
+
             if (dgp.Rows.Count > 0)
                 dgc.DataSource = posts[0].Comments;
         }
 
-        private static PostComment.Post[] LoadPosts()
+        private void RefreshPosts()
         {
-            PostCommentClient pc = new PostCommentClient();
-            PostComment.Post[] p = pc.GetPosts();
-            return p;
+            posts = LoadPosts().ToList();
+            dgp.DataSource = posts;
+        }
+        
+        private void RefreshComments(int rowIndex)
+        {
+            dgc.DataSource = null;
+            dgc.DataSource = posts[rowIndex].Comments;
         }
 
-        // Handler pentru evenimentul CellMouseClick din DatagridView numit dgp
+        private static Post[] LoadPosts()
+        {
+            PostCommentClient pc = new PostCommentClient();
+            return pc.GetPosts();
+        }
+
         private void dgp_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
-            // Se afiseaza Comment-urile pentru Post-ul selectat
-            dgc.DataSource = null;
-            dgc.DataSource = posts[e.RowIndex].Comments;
+
+            selectedPostIndex = e.RowIndex;
+            RefreshComments(e.RowIndex);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             PostCommentClient pc = new PostCommentClient();
 
-            pc.AddPost(new Post 
+            bool added = pc.AddPost(new Post 
             { 
-                Description = "Desc",
-                Date = "Date",
-                Domain = "Domain"
+                Description = textBoxDesc.Text,
+                Date = textBoxDate.Text,
+                Domain = textBoxDomain.Text
             });
+
+            if (added)
+                RefreshPosts();
+        }
+
+        private void buttonAddComment_Click(object sender, EventArgs e)
+        {
+            if (selectedPostIndex < 0)
+                return;
+
+            PostCommentClient pc = new PostCommentClient();
+
+            Post selectedPost = posts[selectedPostIndex];
+
+            Comment comment = new Comment()
+            {
+                Text = textBoxComment.Text,
+                PostPostId = selectedPost.PostId
+            };
+
+            pc.AddComment(comment);
+
+            RefreshPosts();
+            RefreshComments(selectedPostIndex);
         }
     }
 }

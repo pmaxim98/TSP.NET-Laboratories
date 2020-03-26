@@ -56,6 +56,20 @@ namespace PostComment
                 return null; // trebuie verificat in apelant
             }
         }
+
+        public Post GetPostByTitle(string title)
+        {
+            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            {
+                var items = from p in ctx.Posts where (p.Domain == title) select p;
+
+                if (items != null)
+                    return items.Include(c => c.Comments).SingleOrDefault();
+
+                return null;
+            }
+        }
+
         public List<Post> GetAllPosts()
         {
             using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())

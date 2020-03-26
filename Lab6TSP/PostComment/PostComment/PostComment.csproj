@@ -54,7 +54,6 @@
     <Compile Include="APIStatic\API.cs" />
     <Compile Include="API\Comment.cs" />
     <Compile Include="API\Post.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Comment.cs">
       <DependentUpon>ModelPostComment.tt</DependentUpon>
     </Compile>

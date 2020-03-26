@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientPostComment
+namespace PostComment
 {
     [DataContract(IsReference = true)]
     public partial class CommentDTO
@@ -28,7 +28,7 @@ namespace ClientPostComment
     {
         public PostDTO()
         {
-            this.Comments = new List<CommentDTO>(); //new HashSet<Comment>();
+            this.Comments = new List<CommentDTO>();
         }
         [DataMember]
         public int PostId { get; set; }

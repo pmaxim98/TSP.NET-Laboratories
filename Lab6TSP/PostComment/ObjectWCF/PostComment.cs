@@ -13,43 +13,41 @@ namespace ObjectWCF
         {
             return comment.AddComment();
         }
+
         bool InterfacePost.AddPost(Post post)
         {
             return post.AddPost();
-            //return API.AddPost(post);
         }
+
         int InterfacePost.DeletePost(int id)
         {
             Post post = new Post();
             return post.DeletePost(id);
-            // static
-            //return API.DeletePost(id);
         }
+
         Comment InterfaceComment.GetCommentById(int id)
         {
             Comment comment = new Comment();
             return comment.GetCommentById(id);
         }
+
         Post InterfacePost.GetPostById(int id)
         {
-            // E nevoie de ac instanta. Metodele din API sunt metode ale instantei.
             Post post = new Post();
-            // Mesaj ce apare in server CUI. Nu e necesar.
-            Console.WriteLine("GetPostById. Id = {0}", id);
-            post = post.GetPostById(id); // Neclar acest cod.
-            Console.WriteLine("Post returnat. Id = {0} , Description = {1}",
-            post.PostId, post.Description);
-            return post;
+            return post.GetPostById(id);
         }
+
         List<Post> InterfacePost.GetPosts()
         {
             Post post = new Post();
             return post.GetAllPosts();
         }
+
         Comment InterfaceComment.UpdateComment(Comment newComment)
         {
             return newComment.UpdateComment(newComment);
         }
+
         Post InterfacePost.UpdatePost(Post post)
         {
             return post.UpdatePost(post);
@@ -60,19 +58,20 @@ namespace ObjectWCF
             return comm.DeleteComment(comm.Id);
         }
 
-        Comment InterfaceComment.UpdateCommentWithNewOne(Comment oldComment, Comment newComment)
+        Comment InterfaceComment.UpdateOldCommentWithNewOne(Comment oldComment, Comment newComment)
         {
-            throw new NotImplementedException();
+            return newComment.UpdateOldCommentWithNewOne(oldComment, newComment);
         }
 
         Post InterfacePost.GetPostByTitle(string title)
         {
-            throw new NotImplementedException();
+            Post post = new Post();
+            return post.GetPostByTitle(title);
         }
 
-        void InterfaceComment.AddCommentById(int postId, Comment comment)
+        bool InterfaceComment.AddCommentById(int postId, Comment comment)
         {
-            throw new NotImplementedException();
+            return comment.AddCommentById(postId, comment);
         }
     }
 }

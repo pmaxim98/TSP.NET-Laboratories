@@ -21,6 +21,7 @@ namespace ObjectWCF
         [OperationContract]
         Post GetPostByTitle(string title);
     }
+
     [ServiceContract]
     public interface InterfaceComment
     {
@@ -33,10 +34,11 @@ namespace ObjectWCF
         [OperationContract]
         int DeleteComment(Comment comm);
         [OperationContract]
-        Comment UpdateCommentWithNewOne(Comment oldComment, Comment newComment);
+        Comment UpdateOldCommentWithNewOne(Comment oldComment, Comment newComment);
         [OperationContract]
-        void AddCommentById(int postId, Comment comment);
+        bool AddCommentById(int postId, Comment comment);
     }
+
     [ServiceContract]
     public interface IPostComment : InterfacePost, InterfaceComment
     {
