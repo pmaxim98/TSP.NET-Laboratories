@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcPostComment";
+
+package postCommentPackage;
+
+service gRPCPostCommentService {
+    rpc GetAllPosts (NoParamsMessage) returns (PostsResponse);
+
+    rpc GetPostById (IdMessage) returns (PostMessage);
+
+    rpc SubmitPost (PostMessage) returns (PostMessage);
+
+    rpc UpdatePost (PostMessage) returns (PostMessage);
+
+    rpc DeletePost (IdMessage) returns (BoolMessage);
+
+    rpc GetCommentById (IdMessage) returns (CommentMessage);
+
+    rpc DeleteComment (CommentMessage) returns (NoParamsMessage);
+
+    rpc SubmitComment (CommentMessage) returns (BoolMessage);
+}
+
+message CommentMessage {
+    int32 id = 1;
+
+    string text = 2;
+  
+    int32 postPostId = 3;
+
+    PostMessage post = 4;
+}
+
+message PostMessage {
+    int32 postId = 1;
+    
+    string description = 2;
+
+    string domain = 3;
+
+    string date = 4;
+    
+    repeated CommentMessage comments = 5;
+}
+
+message PostsResponse {
+    repeated PostMessage posts = 1;
+}
+
+message IdMessage {
+    int32 id = 1;
+}
+
+message BoolMessage {
+    bool value = 1;
+}
+
+message NoParamsMessage {}
