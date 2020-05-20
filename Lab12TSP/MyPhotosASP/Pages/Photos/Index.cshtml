@@ -1,0 +1,44 @@
+﻿@page
+@model MyPhotosASP.Pages.Photos.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Multimedia</h1>
+
+<form>
+    <p>
+        Image Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<div class="multimedia-container">
+
+    @foreach (var item in Model.Multimedias)
+    {
+        <div class="multimedia">
+            <img src="@Model.GetUploadPath(item)" alt="Image" />
+            <div>
+                <p class="multimedia-prop">Name:</p>
+                <p>@Model.GetNameFromPath(item)</p>
+
+                <p class="multimedia-prop">Date Added:</p>
+                <p>@Html.DisplayFor(modelItem => item.DateAdded)</p>
+
+                <p class="multimedia-prop">Date Created:</p>
+                <p>@Html.DisplayFor(modelItem => item.DateCreated)</p>
+
+                <p class="multimedia-prop">Description:</p>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+
+                <p class="multimedia-prop">Tags:</p>
+                <p>@Html.DisplayFor(modelItem => item.AdditionalLabels)</p>
+
+                <p class="multimedia-prop">Weather:</p>
+                <p>@Html.DisplayFor(modelItem => item.Weather)</p>
+            </div>
+        </div>
+    }
+
+</div>

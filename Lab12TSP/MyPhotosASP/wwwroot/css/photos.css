@@ -1,0 +1,31 @@
+﻿.multimedia-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.multimedia {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    margin: 20px;
+    padding: 10px;
+    background: whitesmoke;
+    box-shadow: 5px 5px 12px 0px rgba(0, 0, 0, 0.75);
+}
+
+.multimedia img {
+    width: 250px;
+    height: 250px;
+    align-self: center;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.multimedia-prop {
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    margin-bottom: 0px;
+}
+
+.multimedia p {
+    margin-bottom: 3px;
+}
